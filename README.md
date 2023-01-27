@@ -7,17 +7,17 @@
 
 # 2. 프로잭트 개발환경 및 기술스텍
 
-* Backend
+* Backend  
 \- Java(JDK1.8)
 
-* Frontend
+* Frontend  
 \- HTML/CSS, JavaScript, BootStrap,
 
-* Server
+* Server  
 \- Apache Tomcat v8.5
 
-* DataBase
-\- PostgreSQL
+* DataBase  
+\- PostgreSQL 42.4.1
 
-* Tool
-\- Spring Tool Suite 4, DBeaver
+* Tool  
+\- Spring Tool Suite 4, DBeaver 21.1.4
