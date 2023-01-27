@@ -8,4 +8,4 @@
 # 2. 프로잭트 개발환경 및 기술스텍
 
 * 백엔드
--- Java
+ - HTML, CSS, JS, BootStrap, Thymeleaf
