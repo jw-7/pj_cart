@@ -7,5 +7,17 @@
 
 # 2. 프로잭트 개발환경 및 기술스텍
 
-* 백엔드
-\- HTML, CSS, JS, BootStrap, Thymeleaf
+* Backend
+\- Java(JDK1.8)
+
+* Frontend
+\- HTML/CSS, JavaScript, BootStrap,
+
+* Server
+\- Apache Tomcat v8.5
+
+* DataBase
+\- PostgreSQL
+
+* Tool
+\- Spring Tool Suite 4, DBeaver
