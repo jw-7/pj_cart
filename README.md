@@ -20,7 +20,10 @@
 \- PostgreSQL 42.4.1
 
 * API & Library  
-\- KAKAO 우편번호 검색 API, Google Mail SMTP, JQuery
+\- 다음 우편번호 검색 API, Google Mail SMTP, 아임포트 결제 API,JQuery
 
 * Tool  
-\- Spring Tool Suite 4, DBeaver 21.1.4 , Maven
+\- Spring Tool Suite 4, DBeaver 21.1.4 , Maven, Github
+
+* 운영체제  
+\- Windows 11
