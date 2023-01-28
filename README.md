@@ -8,7 +8,7 @@
 # 2. 프로잭트 개발환경 및 기술스텍
 
 * Language  
-\- Java(JDK1.8),HTML/CSS, JavaScript
+\- Java(JDK1.8), HTML/CSS, JavaScript
 
 * Framework  
 \- Spring, Mybatis, Spring Security, BootStrap
@@ -20,7 +20,7 @@
 \- PostgreSQL 42.4.1
 
 * API & Library  
-\- KAKAO JQuery
+\- KAKAO 우편번호 검색 API, Google Mail SMTP, JQuery
 
 * Tool  
 \- Spring Tool Suite 4, DBeaver 21.1.4 , Maven
