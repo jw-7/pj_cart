@@ -7,7 +7,7 @@
 
 # 2. 프로잭트 개발환경 및 기술스텍
 
-* Language 
+* Language  
 \- Java(JDK1.8),HTML/CSS, JavaScript
 
 * Framework  
