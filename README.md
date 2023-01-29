@@ -20,7 +20,7 @@
 \- PostgreSQL 42.4.1
 
 * API & Library  
-\- 다음 우편번호 검색 API, Google Mail SMTP, 아임포트 결제 API,JQuery
+\- 다음 우편번호 검색 API, Google Mail SMTP, 아임포트 결제 API, Google 로그인 API,JQuery
 
 * Tool  
 \- Spring Tool Suite 4, DBeaver 21.1.4 , Maven, Github
