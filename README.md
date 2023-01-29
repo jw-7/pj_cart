@@ -8,7 +8,7 @@
 # 2. 프로잭트 개발환경 및 기술스텍
 
 * Language  
-\- Java(JDK1.8,Jsp), HTML/CSS, JavaScript
+\- Java(JDK1.8,JSP), HTML/CSS, JavaScript
 
 * Framework  
 \- Spring, Mybatis, Spring Security, BootStrap
@@ -31,9 +31,9 @@
 # 3. 프로젝트 구현기능  
 
 * 회원
-  * 테스트
-  * 테스트2
+ * 테스트
+ * 테스트2
  
 * 게시판
-  * 테스트
-  * 테스트2
+ * 테스트
+ * 테스트2
