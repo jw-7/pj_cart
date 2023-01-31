@@ -1,8 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+		<!-- properties --> 
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="classpath:/jdbc.properties" />
+        <property name="fileEncoding" value="UTF-8" />
+    </bean>
+    
+    <!-- JDBC-PostgreSQL -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+    </bean>
+    
+    <!-- SqlSessionFactory 객체 (Connection + MyBatis 객체연결 역할, DB해제는 못하고 Connection해제만 가능)-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+       <property name="dataSource" ref="dataSource" />
+       <property name="configLocation" value="classpath:config/mybatis-config.xml" />
+       <property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml" />    
+    </bean>
+    
+    <!-- SqlSesstionTemplate 객체 (DB연결/해제(pstmt, resultset포함 해제가능) 역할)-->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	
+	<mybatis-spring:scan base-package="project.pj_cart.mappers"/>	
+		
+	<!-- DAO패키지와 연결  -->
+	<context:component-scan base-package="project.pj_cart.persistence"/>
+	
+	<!-- 서비스패키지와 연결  -->
+	<context:component-scan base-package="project.pj_cart.service" />
 		
 </beans>
