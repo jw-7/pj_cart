@@ -8360,3 +8360,32 @@ textarea.form-control {
         border: 1px solid transparent;
         background: #52de97;
         color: #fff; }
+        
+/* page-loading */
+  #loading {
+  	width: 100%;
+  	height: 100%;
+  	top: 0;
+  	left: 0;
+  	position: fixed;
+  	display: block;
+  	opacity: 0.6;
+  	background: #e4e4e4;
+  	z-index: 99;
+  	text-align: center;
+  }
+
+
+
+  #loading > img {
+  	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	z-index: 100;
+  }
+   #loading > p {
+    	position: absolute;
+    	top: 57%;
+    	left: 43%;
+    	z-index: 101;
+    }

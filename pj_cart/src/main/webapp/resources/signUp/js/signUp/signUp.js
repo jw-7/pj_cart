@@ -211,6 +211,8 @@ function sample6_execDaumPostcode() {
 			alert("우편번호를 입력하세요.");
 			return false;
 		}	
+		
+		document.getElementById('loading').style.display = '';
 			
 		document.signUpForm.submit();
 		document.querySelector("#btn_submit").setAttribute("disabled", "true");
