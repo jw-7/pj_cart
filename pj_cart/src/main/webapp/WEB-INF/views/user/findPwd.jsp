@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="../resources/findPwd/css/bootstrap.min.css">
    
 <!-- Style -->
-<link rel="stylesheet" href="../resources/findPwd/css/style.css">
+<link rel="stylesheet" href="../resources/findPwd/css/style.css?after">
 
 <!-- JQuery 사용 -->
 <script src="http://code.jquery.com/jquery-latest.js"></script> 
@@ -25,6 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
 	
@@ -38,10 +39,10 @@
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-md-7 col-lg-6 col-xl-5">
-					<div class="w3-bar w3-black">
-						<button class="w3-bar-item w3-button" onclick="openCity('findId')">아이디찾기</button>
-						<button class="w3-bar-item w3-button"
-							onclick="openCity('findPwd')">비밀번호찾기</button>
+					<div class="btn-group">
+						<button class="button on" onclick="openCity('findId')" id="test11">아이디찾기</button>
+						<button class="button"
+							onclick="openCity('findPwd')" id="test22">비밀번호찾기</button>
 					</div>
 					<div class="login-wrap p-4 p-md-5">
 						<form action="/user/signUpProc" class="signup-form" method="post"
@@ -82,17 +83,6 @@
 	</section>
 
 	<!-- Modal -->
-	<div class="container content">
-		<div class="row align-items-center content">
-
-			<div class="col-12 text-center">
-				<h3 class="mb-4">Modal #1</h3>
-				<button type="button" class="btn btn-primary" data-toggle="modal"
-					data-target="#exampleModalCenter">Launch modal</button>
-			</div>
-		</div>
-	</div>
-
 	<div class="modal fade" id="exampleModalCenter" tabindex="-1"
 		role="dialog" aria-labelledby="exampleModalCenterTitle"
 		aria-hidden="true">
@@ -118,64 +108,6 @@
 <script src="../resources/findPwd/js/popper.min.js"></script>
 <script src="../resources/findPwd/js/bootstrap.min.js"></script>
 <script src="../resources/findPwd/js/main.js"></script>	
-
-<script type="text/javascript">
-function openCity(cityName) {
-	  var i;
-	  var x = document.getElementsByClassName("form-group mb-3");
-	  for (i = 0; i < x.length; i++) {
-	    x[i].style.display = "none";
-	  }
-	  document.getElementById(cityName).style.display = "block";
-	  if(cityName == "findId"){
-		  document.getElementById('btn_submit').value = "아이디찾기";
-		  document.getElementById('id').value = null;
-		  document.getElementById('email2').value = null;
-	  } else {
-		  document.getElementById('btn_submit').value = "비밀번호찾기";
-		  document.getElementById('name').value = null;
-		  document.getElementById('email').value = null;
-	  }
-	  
-	  
-	}
-
-function findIdOrPwd(){
-	$.ajax({
-		url: "/user/findIdOrPwd",
-		type: "POST",
-		dataType: "JSON",
-		data: {
-			"name": $("#name").val(),
-			"email": $("#email").val(),
-			"id": $("#id").val(),
-			"email2": $("#email2").val()
-		},
-		success: function(data){
-			if(data == 1){
-			    $.ajax({
-					url: "/user/findIdSearch",
-					type: "POST",
-					dataType: "JSON",
-					data: {
-						"name": $("#name").val(),
-						"email": $("#email").val()
-					},
-					success: function(data){
-						$("#exampleModalCenter").modal('show');
-						$("#userId").val(data);
-					}
-				})
-			} else if(data == 2){
-				alert("비밀번호 찾기 성공");
-			} else {
-				alert("존재하지 않는 아이디입니다.");
-				return false;
-			}
-		}
-	})
-	
-}
-</script>
+<script src="../resources/findPwd/js/findPwd/findPwd.js"></script>	
 </body>
 </html>

@@ -4,6 +4,31 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+ 
+ .btn-group .button {
+  background-color: #008000; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  float: left;
+}
+
+.btn-group .button:hover {
+  background-color: #ffffff;
+  color: #000000;
+  outline: none;
+}
+
+.btn-group .button.on {
+	background-color: #ffffff;
+	color: #000000;
+	outline: none;
+}
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -8388,4 +8413,7 @@ textarea.form-control {
     	top: 57%;
     	left: 43%;
     	z-index: 101;
-    }
+  }
+
+
+
