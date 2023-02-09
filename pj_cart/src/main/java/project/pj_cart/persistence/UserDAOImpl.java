@@ -55,4 +55,10 @@ public class UserDAOImpl implements UserDAO {
 	public int emailAuthFail(String id) throws Exception {
 		return sqlSession.selectOne(namespace + ".emailAuthFail",id);
 	}
+	
+	// 아이디 / 비밀번호 찾기
+	@Override
+	public int findIdOrPwd(UserDTO udto) throws Exception {
+		return sqlSession.selectOne(namespace + ".findIdOrPwd",udto);
+	}
 }

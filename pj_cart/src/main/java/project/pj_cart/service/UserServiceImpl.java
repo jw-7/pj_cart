@@ -126,5 +126,13 @@ public class UserServiceImpl implements UserService {
 		logger.info("ID or Password Check Please.");
 		return 0;
 	}
+	
+	// 아이디 / 비밀번호 찾기
+	@Override
+	public int findIdOrPwd(UserDTO udto) throws Exception {
+		int result = udao.findIdOrPwd(udto);
+		
+		return result;
+	}
 
 }

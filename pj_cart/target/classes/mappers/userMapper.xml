@@ -11,32 +11,45 @@
 	
 	<!-- 회원조회 -->
 	<select id="searchUser" resultType="project.pj_cart.domain.UserDTO">
-		SELECT * FROM TB_USER WHERE id = #{id} OR email = #{email}
+		SELECT * FROM TB_USER 
+		WHERE id = #{id} OR email = #{email}
 	</select>
 	
 	<!-- 중복아이디 체크 -->
 	<select id="dupIdCk" resultType="int">
-		SELECT COUNT(*) FROM TB_USER WHERE id = #{id}
+		SELECT COUNT(*) FROM TB_USER 
+		WHERE id = #{id}
 	</select>
 	
 	<!-- 중복이메일 체크 -->
 	<select id="dupEmailCk" resultType="int">
-		SELECT COUNT(*) FROM TB_USER WHERE email = #{email}
+		SELECT COUNT(*) FROM TB_USER 
+		WHERE email = #{email}
 	</select>
 	
 	<!-- 메일인증키 생성 -->
 	<update id="updateMailKey" parameterType="project.pj_cart.domain.UserDTO">
-		UPDATE TB_USER SET mail_key = #{mail_key} WHERE email = #{email} AND id = #{id}
+		UPDATE TB_USER SET mail_key = #{mail_key} 
+		WHERE email = #{email} AND id = #{id}
 	</update>
 	
 	<!-- 메일인증 상태 변경 -->
 	<update id="updateMailAuth" parameterType="project.pj_cart.domain.UserDTO">
-		UPDATE TB_USER SET mail_auth = 1, userStatus = 1 WHERE email = #{email}
+		UPDATE TB_USER SET mail_auth = 1, userStatus = 1 
+		WHERE email = #{email}
 	</update>
 	
 	<!-- 이메일 인증 유/무 체크 -->
 	<select id="emailAuthFail" parameterType="String" resultType="int">
-		SELECT COUNT(*) FROM TB_USER WHERE id = #{id} AND mail_auth = 1
+		SELECT COUNT(*) FROM TB_USER 
+		WHERE id = #{id} AND mail_auth = 1
+	</select>
+	
+	<!-- 아이디/비밀번호 찾기 -->
+	<select id="findIdOrPwd" resultType="int">
+		SELECT COUNT(*) FROM TB_USER 
+		WHERE (name = #{name} AND email = #{email}) 
+		OR (id = #{id} AND email = #{email})
 	</select>
 	
 </mapper>

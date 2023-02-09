@@ -60,7 +60,7 @@
 									<span class="ml-auto">
 									<a href="/user/signUp" class="forgot-pass">회원가입</a>
 									/
-									<a href="#" class="forgot-pass">비밀번호 찾기</a>
+									<a href="/user/findPwd" class="forgot-pass">비밀번호 찾기</a>
 									</span>
 							</div>
 

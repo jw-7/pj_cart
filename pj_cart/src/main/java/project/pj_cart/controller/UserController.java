@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -118,5 +119,35 @@ public class UserController {
 			logger.info("Re-Send Mail Fail.");
 			return 0;
 		}
+	}
+	
+	// 비밀번호 찾기
+	@GetMapping(value = "/user/findPwd")
+	public String findPwd() throws Exception {
+		return "/user/findPwd";
+	}
+	
+	// 아이디 찾기/비밀번호 찾기
+	@PostMapping(value = "/user/findIdOrPwd")
+	@ResponseBody
+	public int findIdOrPwd(UserDTO udto, @RequestParam String email2) throws Exception {
+		int result = 0;
+		if(email2.length() > 0) {
+			udto.setEmail(email2);
+			result = uService.findIdOrPwd(udto);
+			if(result == 1) {
+				result = 2;
+			}
+		} else {
+			result = uService.findIdOrPwd(udto);
+		}
+		return result;
+	}
+	
+	@PostMapping(value = "/user/findIdSearch")
+	@ResponseBody
+	public String findIdSearch(UserDTO udto) throws Exception {
+		UserDTO userId = uService.searchUser(udto);
+		return userId.getId();
 	}
 }

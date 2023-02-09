@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>PJ_CART 메일인증 필요</title>
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,7 +14,6 @@
 <link rel="stylesheet" href="../resources/signUp/css/bootstrap.min.css">
 <!-- Style -->
 <link rel="stylesheet" href="../resources/signUp/css/style.css">
-<title>PJ_CART 메일인증 필요</title>
 <script src="http://code.jquery.com/jquery-latest.js"></script> 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" type="text/javascript"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

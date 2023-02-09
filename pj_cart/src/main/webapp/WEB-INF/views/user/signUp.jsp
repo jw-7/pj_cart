@@ -139,7 +139,7 @@
 	
 <div id="loading" style="margin-left: 0px; display: none;">
     <img src="../resources/signUp/images/signUp_loading.gif">
-    <p>변환중입니다..잠시기다려주세요.</p>
+    <p>회원가입 처리중입니다..</p>
 </div>
 
 <script src="../resources/signUp/js/jquery-3.3.1.min.js"></script>

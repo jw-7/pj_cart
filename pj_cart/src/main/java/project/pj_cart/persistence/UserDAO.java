@@ -24,4 +24,7 @@ public interface UserDAO {
 	
 	// 이메일 인증 유/무 체크
 	public int emailAuthFail(String id) throws Exception;
+	
+	// 아이디 / 비밀번호 찾기
+	public int findIdOrPwd(UserDTO udto) throws Exception;
 }
