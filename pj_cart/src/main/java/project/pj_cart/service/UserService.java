@@ -34,4 +34,10 @@ public interface UserService {
 	// 아이디 / 비밀번호 찾기
 	public int findIdOrPwd(UserDTO udto) throws Exception;
 	
+	// 비밀번호 찾기 인증키 메일전송
+	public int pwdAuthenticationNumber(UserDTO udto) throws Exception;
+	
+	// 비밀번호 변경
+	public int updatePassword(UserDTO udto) throws Exception;	
+	
 }

@@ -27,4 +27,7 @@ public interface UserDAO {
 	
 	// 아이디 / 비밀번호 찾기
 	public int findIdOrPwd(UserDTO udto) throws Exception;
+	
+	// 비밀번호 변경
+	public void updatePassword(UserDTO udto) throws Exception;
 }

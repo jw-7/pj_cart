@@ -34,7 +34,7 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">PJ_CART 아이디 찾기</h2>
+					<h2 class="heading-section">PJ_CART 아이디/비밀번호 찾기</h2>
 				</div>
 			</div>
 			<div class="row justify-content-center">
@@ -45,8 +45,7 @@
 							onclick="openCity('findPwd')" id="test22">비밀번호찾기</button>
 					</div>
 					<div class="login-wrap p-4 p-md-5">
-						<form action="/user/signUpProc" class="signup-form" method="post"
-							name="signUpForm">
+						<form action="/user/pwdAuthenticationNumber" class="signup-form" method="post" id="pwdAuthenticationNumber">
 
 							<div class="form-group mb-3" id="findId">
 								<label class="label" for="name">이름 </label><br> <input

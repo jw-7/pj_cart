@@ -52,4 +52,9 @@
 		OR (id = #{id} AND email = #{email})
 	</select>
 	
+	<!-- 비밀번호 변경 -->
+	<update id="updatePassword">
+		UPDATE TB_USER SET pwd = #{pwd} WHERE id = #{id} AND email = #{email}
+	</update>
+	
 </mapper>

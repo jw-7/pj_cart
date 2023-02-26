@@ -1,5 +1,7 @@
 package project.pj_cart.service;
 
+import java.util.Random;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -133,6 +135,47 @@ public class UserServiceImpl implements UserService {
 		int result = udao.findIdOrPwd(udto);
 		
 		return result;
+	}
+	
+	// 비밀번호 찾기 인증번호 메일전송
+	@Override
+	public int pwdAuthenticationNumber(UserDTO udto) throws Exception {
+		int result = udao.findIdOrPwd(udto);
+		
+		if (result == 1) {
+			Random random = new Random();
+			int num = random.nextInt(999999);
+
+			result = num;
+
+			MailHandler sendMail = new MailHandler(mailSender);
+			sendMail.setSubject("비밀번호 찾기 인증번호입니다.");
+			sendMail.setText("<h1>PJ_CART 비밀번호 찾기 인증번호</h1>" + "<br>PJ_CART 인증키입니다." + "<br>" + num);
+			sendMail.setFrom("finResLee@gmail.com", "PJ_CART");
+			sendMail.setTo(udto.getEmail());
+			sendMail.send();
+			
+		}
+		
+		return result;
+	}
+
+	// 비밀번호 변경
+	@Override
+	public int updatePassword(UserDTO udto) throws Exception {
+		int result = 0;
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		
+		UserDTO oriUser = udao.searchUser(udto);
+		if(!encoder.matches(udto.getPwd(), oriUser.getPwd())) {
+			udto.setPwd(passwordEncoder.encode(udto.getPwd()));
+			udao.updatePassword(udto);
+			result = 1;
+			return result;
+		} else {
+			result = 2;
+			return result;
+		}
 	}
 
 }

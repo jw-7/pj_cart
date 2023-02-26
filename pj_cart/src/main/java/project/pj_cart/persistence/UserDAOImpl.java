@@ -61,4 +61,10 @@ public class UserDAOImpl implements UserDAO {
 	public int findIdOrPwd(UserDTO udto) throws Exception {
 		return sqlSession.selectOne(namespace + ".findIdOrPwd",udto);
 	}
+
+	// 비밀번호 변경
+	@Override
+	public void updatePassword(UserDTO udto) throws Exception {
+		sqlSession.update(namespace + ".updatePassword",udto);
+	}
 }

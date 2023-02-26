@@ -3,6 +3,7 @@ package project.pj_cart.controller;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -127,7 +128,7 @@ public class UserController {
 		return "/user/findPwd";
 	}
 	
-	// 아이디 찾기/비밀번호 찾기
+	// 아이디 찾기/비밀번호 체크
 	@PostMapping(value = "/user/findIdOrPwd")
 	@ResponseBody
 	public int findIdOrPwd(UserDTO udto, @RequestParam String email2) throws Exception {
@@ -144,10 +145,70 @@ public class UserController {
 		return result;
 	}
 	
+	// 아이디 가져오기
 	@PostMapping(value = "/user/findIdSearch")
 	@ResponseBody
 	public String findIdSearch(UserDTO udto) throws Exception {
 		UserDTO userId = uService.searchUser(udto);
 		return userId.getId();
+	}
+	
+	// 비밀번호 찾기 인증번호 보내기
+	@PostMapping(value = "/user/pwdAuthenticationNumber")
+	public String pwdAuthenticationNumber(UserDTO udto,String email2,RedirectAttributes rttr) throws Exception {
+		udto.setEmail(email2);
+		int result = uService.findIdOrPwd(udto);
+		if(result == 1) {
+			rttr.addFlashAttribute("userInfo",udto);
+			return "redirect:/user/authenticationNumber";
+		} else {
+			return "redirect:/user/findPwd";
+		}
+		
+	}
+	
+	// 비밀번호 인증 페이지
+	@GetMapping(value = "/user/authenticationNumber")
+	public String authenticationNumber() throws Exception {
+		return "/user/authenticationNumber";
+	}
+	
+	// 비밀번호 인증 처리
+	@PostMapping(value = "/user/authenticationNumberProc")
+	@ResponseBody
+	public int authenticationNumberProc(UserDTO udto) throws Exception {
+		
+		int result = uService.pwdAuthenticationNumber(udto);
+		
+		return result;
+	}
+	
+	// 인증코드 입력 후 새 비밀번호 페이지 데이터 전달 및 페이지 이동
+	@PostMapping(value = "/user/authenticationNumberCheck")
+	public String authenticationNumberCheck(UserDTO udto, RedirectAttributes rttr) throws Exception {
+		rttr.addFlashAttribute("userInfo",udto);
+		return "redirect:/user/newPwd";
+	}
+	
+	// 새 비밀번호 설정페이지
+	@GetMapping(value = "/user/newPwd")
+	public String newPwd() throws Exception {
+		return "/user/newPwd";
+	}
+	
+	// 새 비밀번호 설정 처리
+	@PostMapping(value = "/user/newPwdProc")
+	@ResponseBody
+	public int newPwdProc(UserDTO udto) throws Exception {
+		int result = uService.updatePassword(udto); 
+		
+		return result;
+		
+	}
+	
+	// 테스트 페이지
+	@GetMapping(value = "/user/test")
+	public String test() throws Exception {
+		return "/user/test";
 	}
 }

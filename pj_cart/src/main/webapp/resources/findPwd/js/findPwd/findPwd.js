@@ -48,7 +48,7 @@ function findIdOrPwd(){
 					}
 				})
 			} else if(data == 2){
-				alert("비밀번호 찾기 성공");
+				abc();
 			} else {
 				alert("존재하지 않는 아이디입니다.");
 				return false;
@@ -56,4 +56,8 @@ function findIdOrPwd(){
 		}
 	})
 	
+}
+
+function abc(){
+	$('#pwdAuthenticationNumber').submit();
 }
