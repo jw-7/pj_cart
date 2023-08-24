@@ -1,4 +1,4 @@
-package com.pj_cart.controller;
+package com.pj_cart;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
